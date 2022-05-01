@@ -20,6 +20,8 @@ services:
     depends_on:
       - db
       - cache
+    volumes:
+      - ./:/app
 
   db:
     container_name: db
@@ -34,8 +36,13 @@ services:
     container_name: cache
     image: redis:6.2-alpine
     restart: always
+    volumes:
+      - cache:/data
     expose:
       - 6379
 
 volumes:
   music-data:
+    driver: local
+  cache:
+    driver: local
