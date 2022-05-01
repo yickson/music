@@ -7,5 +7,12 @@ construido con Node - Typescript - MongoDB
 
 Actualización pendiente
 
+
+### Endpoints disponible
+
+Lista de endpoints disponible para nuestro servicio
+
+- Pending
+
 ![skywalker](./assets/music.jpeg "Jedi")
 

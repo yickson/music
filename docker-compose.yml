@@ -1,0 +1,31 @@
+version: '3.5'
+
+services:
+  app:
+    container_name: app
+    restart: always
+    build:
+      context: ./node
+      dockerfile: Dockerfile.dev
+    env_file: .env.local
+    environment:
+      - PORT:${PORT}
+      - MONGO_URL=${MONGO_URL}
+    ports:
+      - "3005:3005"
+    depends_on:
+      - db
+    external_links:
+      - mongo
+
+  db:
+    container_name: db
+    image: mongo
+    restart: always
+    volumes:
+      - music-data:/data/db
+    ports:
+      - "27017:27017"
+
+volumes:
+  music-data:
