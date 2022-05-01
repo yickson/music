@@ -1,15 +1,11 @@
 # Dockerfile for enviroment Dev
-FROM node:16-alpine3.15
+FROM node:16
 
-WORKDIR /usr
-
+WORKDIR /app
 COPY package.json ./
-COPY tsconfig.json ./
-
-COPY src ./src
+COPY package-lock.json ./
 RUN npm install
 COPY . .
-
 EXPOSE 3005
 
 CMD ["npm", "run", "dev"]
