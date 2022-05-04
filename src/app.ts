@@ -2,6 +2,8 @@ import express, {Request, Response} from 'express';
 import bodyParser from 'body-parser';
 import dotenv from 'dotenv';
 import {startRedis} from './utils/cache';
+import mongoose from 'mongoose';
+import {MONGO} from './config/mongo';
 import searchRoutes from './routes/search.routes';
 
 
@@ -9,6 +11,9 @@ dotenv.config();
 
 startRedis();
 const { env } = process
+mongoose.connect(MONGO.url!)
+    .then(() => console.log('Connected Database'))
+    .catch(err => console.log(err))
 const app = express();
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({extended: true}))

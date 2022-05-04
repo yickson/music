@@ -14,7 +14,6 @@ services:
       - REDIS_URL=redis://cache
       - CLIENT_ID=2fc61d1ba61047b993648497ee507b66
       - CLIENT_SECRET=166e2d172b85484d883d62052cb69756
-      - PASS=h3ll0
     ports:
       - "3005:3005"
     depends_on:
