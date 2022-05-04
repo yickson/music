@@ -37,10 +37,11 @@ const searchController = {
                 release: release_date,
                 total_track: total_tracks,
                 image: images[1].url
-            }, (error => console.log('Error database', error)))
+            }, (error => console.log('Error DB', error)))
         }
         res.send({
-            data: response
+            data: response,
+            message: 'success'
         })
     }
 
