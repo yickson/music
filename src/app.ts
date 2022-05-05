@@ -20,8 +20,8 @@ const app = express();
 app.use(cors<Request>());
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({extended: true}))
-app.use(searchRoutes)
-app.use(favoriteRoutes)
+app.use('/album', searchRoutes)
+app.use('/favorites', favoriteRoutes)
 const port = env.PORT;
 
 // status
