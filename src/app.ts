@@ -4,6 +4,7 @@ import dotenv from 'dotenv';
 import {startRedis} from './utils/cache';
 import mongoose from 'mongoose';
 import {MONGO} from './config/mongo';
+import cors from 'cors';
 import searchRoutes from './routes/search.routes';
 import favoriteRoutes from './routes/favorite.routes';
 
@@ -16,6 +17,7 @@ mongoose.connect(MONGO.url!)
     .then(() => console.log('Connected Database'))
     .catch(err => console.log(err))
 const app = express();
+app.use(cors<Request>());
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({extended: true}))
 app.use(searchRoutes)

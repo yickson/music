@@ -40,7 +40,7 @@ const searchController = {
             }, (error => console.log('Error DB', error)))
         }
         res.send({
-            data: response,
+            data: items,
             message: 'success'
         })
     }

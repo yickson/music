@@ -46,6 +46,14 @@ const favoriteController = {
                 message: 'success'
             })
         }
+    },
+
+    get: async (_req: Request, res: Response) => {
+        const favorites = await Favorite.find({});
+        res.send({
+            data: favorites,
+            message: 'success'
+        })
     }
 }
 
